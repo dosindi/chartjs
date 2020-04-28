@@ -11,7 +11,7 @@ This is the demo project for [vaadin-chartjs](https://github.com/moberwasserlech
 
 # Live Demo
 
-* http://chartjs.herokuapp.com/chartjs 
+* https://vchartjs.herokuapp.com/chartjs
 
 ## Contribute
 
