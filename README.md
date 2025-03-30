@@ -40,24 +40,28 @@ The demo application is based on Spring Boot. So its possible to run the Demo as
 
 ### Run on render
 1. Configure Dockerfile
-       ```yaml
-          FROM eclipse-temurin:17-jdk-focal
- 
-          WORKDIR /app
+
+```yaml
+
+FROM eclipse-temurin:17-jdk-focal
+WORKDIR /app
            
-          COPY .mvn/ .mvn
-          COPY mvnw pom.xml ./
-          RUN ./mvnw dependency:go-offline
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
            
-          COPY src ./src
+COPY src ./src
            
-          CMD ["./mvnw", "spring-boot:run"]
-       ```
+CMD ["./mvnw", "spring-boot:run"]
+```
+
 2. Configure application.properties
-       ```yaml
-          server.address=0.0.0.0
-          server.port=${PORT:8080}
-       ```
+
+```yaml
+server.address=0.0.0.0
+server.port=${PORT:8080}
+```
+
 3. Configure on render io
 
 ### Code Style
