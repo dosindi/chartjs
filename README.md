@@ -38,6 +38,28 @@ The demo application is based on Spring Boot. So its possible to run the Demo as
 5. Set `-Dprofile=dev` as VM argument. This ensures that source code panel in the demo is correctly filled while developing.
 6. Browse to `http://localhost:8080/`
 
+### Run on render
+1. Configure Dockerfile
+       ```yaml
+          FROM eclipse-temurin:17-jdk-focal
+ 
+          WORKDIR /app
+           
+          COPY .mvn/ .mvn
+          COPY mvnw pom.xml ./
+          RUN ./mvnw dependency:go-offline
+           
+          COPY src ./src
+           
+          CMD ["./mvnw", "spring-boot:run"]
+       ```
+2. Configure application.properties
+       ```yaml
+          server.address=0.0.0.0
+          server.port=${PORT:8080}
+       ```
+3. Configure on render io
+
 ### Code Style
 
 Please use the sun coding convention. Please do not use tabs at all!
