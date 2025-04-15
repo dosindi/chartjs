@@ -11,7 +11,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Build the project with production profile (minimizes frontend dependencies)
-RUN mvn clean package -Pproduction -DskipTests
+RUN mvn clean package -Dprofile=dev -DskipTests
 
 # ---- Stage 2: Create a minimal runtime image ----
 FROM eclipse-temurin:17-jre AS runtime
